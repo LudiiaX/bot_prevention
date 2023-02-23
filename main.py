@@ -5,6 +5,7 @@ import os
 intents = discord.Intents().all()
 bot = Bot("*", intents=intents)
 
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 #Amélioration :
 #Ne pas se prévenir soit meme quand on rejoint
@@ -56,5 +57,5 @@ def add_members():
             members.append(i)
     
 print("Lancement du bot .....")
-bot.run("MTA3Nzk2MjM2NjE4NjE3MjQxNw.GBOtGp.qeOsJ9pP_QD-5iQjQaddKdySWVDKX7gRZW_QA4")
+bot.run(TOKEN)
 
