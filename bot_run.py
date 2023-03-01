@@ -76,7 +76,7 @@ def add_members():
             members.append(i)
 
 def deamon():
-    bot.run(DISCORD_TOKEN, reconnect=True, log_handler=None)
+    bot.loop.run_until_complete(bot.run(DISCORD_TOKEN, reconnect=True, log_handler=None))
 
 
 if __name__ == "__main__":
