@@ -9,6 +9,24 @@ from dotenv import load_dotenv
 # IMPORT COMMANDS FROM THE DISCORD.EXT MODULE.
 from discord.ext import commands
 
+# LOADS THE .ENV FILE THAT RESIDES ON THE SAME LEVEL AS THE SCRIPT.
+load_dotenv()
+
+# GRAB THE API TOKEN FROM THE .ENV FILE.
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+
+intents = discord.Intents().all()
+bot = Bot("*", intents=intents)
+
+members = []
+list_members = []
+
+#Amélioration :
+#Ne pas se prévenir soit meme quand on rejoint
+#Faire une liste de membre par serveur est non global
+#   avec un dico
+#Faire un code propre, ranger et le deamoniser
+
 @bot.event
 async def on_ready():
     global members
@@ -62,29 +80,11 @@ def add_members():
 
 
 def deamon():
-    # LOADS THE .ENV FILE THAT RESIDES ON THE SAME LEVEL AS THE SCRIPT.
-    load_dotenv()
-
-    # GRAB THE API TOKEN FROM THE .ENV FILE.
-    DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-
-    intents = discord.Intents().all()
-    bot = Bot("*", intents=intents)
-
-
-    #Amélioration :
-    #Ne pas se prévenir soit meme quand on rejoint
-    #Faire une liste de membre par serveur est non global
-    #   avec un dico
-    #Faire un code propre, ranger et le deamoniser
-
     print("Lancement du bot .....")
     bot.run(DISCORD_TOKEN)
 
 
 if __name__ == "__main__":
-    members = []
-    list_members = []
     normal_thread = threading.Thread(target=deamon, name="normal_thread")
     normal_thread.start()
     time.sleep(4)
