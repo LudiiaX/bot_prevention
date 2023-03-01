@@ -75,10 +75,5 @@ def add_members():
         if i.name in list_members:
             members.append(i)
 
-def deamon():
-    bot.loop.run_until_complete(bot.run(DISCORD_TOKEN, reconnect=True, log_handler=None))
 
-
-if __name__ == "__main__":
-    discord_bot_thread = threading.Thread(target=deamon, name="discord_bot_thread")
-    discord_bot_thread.start()
+bot.run(DISCORD_TOKEN, reconnect=True, log_handler=None)
