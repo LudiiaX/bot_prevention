@@ -21,6 +21,8 @@ bot = Bot("*", intents=intents)
 #Ne pas se prévenir soit meme quand on rejoint
 #Faire une liste de membre par serveur est non global
 #   avec un dico
+#Faire un code propre, ranger et le deamoniser
+
 
 members = []
 list_members = []
