@@ -30,7 +30,6 @@ list_members = []
 @bot.event
 async def on_ready():
     global members
-    print("Bot pret")
     add_members()
     for i in members:
         await i.send("Bot pret")
@@ -75,16 +74,9 @@ def add_members():
     for i in test:
         if i.name in list_members:
             members.append(i)
-    
-
-
-
-def deamon():
-    print("Lancement du bot .....")
-    bot.run(DISCORD_TOKEN)
 
 
 if __name__ == "__main__":
-    normal_thread = threading.Thread(target=deamon, name="normal_thread")
-    normal_thread.start()
+    discord_bot_thread = threading.Thread(target=bot.run,args=[DISCORD_TOKEN] , name="discord_bot_thread")
+    discord_bot_thread.start()
     time.sleep(4)
