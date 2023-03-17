@@ -97,8 +97,10 @@ async def bangasound(ctx):
 async def play(ctx, url):
     global vc
     yt = YouTube(url)
-    #print(yt.streams.filter(only_audio=True))
-    #stream = yt.streams.last()
+    print(yt)
+    print(yt.streams)
+    print(yt.streams.filter(only_audio=True))
+    stream = yt.streams.last()
     #music = stream.download(output_path="music/")
     if rechercher(yt.title):
         music = "music/"+ yt.title 
